@@ -5,8 +5,9 @@ public class CountSort {
 
   public static void countSort(int[] arr, int min, int max) {
    //write your code here
+
+   //find frequency
    int range = max - min + 1;
-   
    int freq[] = new int[range];
    for(int val : arr){
        int pos = val-min;

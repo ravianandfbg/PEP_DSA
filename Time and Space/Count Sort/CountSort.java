@@ -29,7 +29,7 @@ public class CountSort {
        freq[pos]--;
    }
    
-   //put the element in the list
+   //copy the element in the list
    for(int i = 0 ; i < arr.length ; i++){
        arr[i] = res[i];
    }

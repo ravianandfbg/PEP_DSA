@@ -7,6 +7,7 @@ public class intro {
           System.out.println("Fibonacci tabulated : "+fibonacciT(n));
           System.out.println("Fibonacci tabulated optimized : "+fibonacciTOptimized(n));
       }
+      //Recursion
       public static int fibonacciR(int n){
           if(n == 0 || n == 1){
               return n;
@@ -18,6 +19,9 @@ public class intro {
           return fibN;
       }
   
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
       // Method 1 :- MEMORIZATION
       public static int fibonacciM(int n,int dp[]){
           if(n == 0 || n == 1){
@@ -32,6 +36,9 @@ public class intro {
           int fibN = fibNm1 + fibNm2;
           return dp[n] = fibN;
       }
+
+      //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
   
       // METHOD 2 :- TABULATION
       public static int fibonacciT(int n){
@@ -48,6 +55,9 @@ public class intro {
           
           return dp[n];
       }
+
+      //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
   
       // METHOD 3 :- TABULATED OPTIMIZATION
       public static int fibonacciTOptimized(int n){

@@ -79,55 +79,50 @@ public class Main {
     return h;
   }
 
-  public static void traversals(Node node){
-    System.out.println("Node Pre " + node.data);
-
-    for(Node child: node.children){
-      System.out.println("Edge Pre " + node.data + "--" + child.data);
-      traversals(child);
-      System.out.println("Edge Post " + node.data + "--" + child.data);
-    }
-
-    System.out.println("Node Post " + node.data);
-  }
-
-  public static void levelOrderLinewise(Node root){
+  public static boolean areMirror(Node n1, Node n2) {
     // write your code here
-     Queue<Node> mainq = new ArrayDeque<>();
-        Queue<Node> helperq = new ArrayDeque<>();
-
-        mainq.add(root);
-
-        while(mainq.size() > 0){
-            Node fnode = mainq.remove();//remove
-            System.out.print(fnode.data+" "); // print
-
-            // add children to helperq
-            for(Node child : fnode.children){
-                helperq.add(child);
-            }
-
-            if(mainq.size() == 0){
-                System.out.println();
-
-                Queue<Node> tempq = mainq;
-                mainq = helperq;
-                helperq = tempq;
-            }
+    
+    if(n1.children.size() != n2.children.size()){
+        return false;
+    }
+    //for real image tree check left to right
+    for(int i = 0 ; i < n1.children.size() ; i++){
+        Node child1 = n1.children.get(i);
+        
+        //for mirror image tree check right to left
+        int mIdx = n2.children.size()-1-i; // mIdx : mirror index
+        Node child2 = n2.children.get(mIdx);
+        
+        boolean res = areMirror(child1,child2);
+        
+        if(res == false){
+            return false;
         }
+    }
+    return true;
   }
 
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    int n = Integer.parseInt(br.readLine());
-    int[] arr = new int[n];
-    String[] values = br.readLine().split(" ");
-    for (int i = 0; i < n; i++) {
-      arr[i] = Integer.parseInt(values[i]);
-    }
 
-    Node root = construct(arr);
-    levelOrderLinewise(root);
+    int n1 = Integer.parseInt(br.readLine());
+    int[] arr1 = new int[n1];
+    String[] values1 = br.readLine().split(" ");
+    for (int i = 0; i < n1; i++) {
+      arr1[i] = Integer.parseInt(values1[i]);
+    }
+    Node root1 = construct(arr1);
+
+    int n2 = Integer.parseInt(br.readLine());
+    int[] arr2 = new int[n2];
+    String[] values2 = br.readLine().split(" ");
+    for (int i = 0; i < n2; i++) {
+      arr2[i] = Integer.parseInt(values2[i]);
+    }
+    Node root2 = construct(arr2);
+
+    boolean mirror = areMirror(root1, root2);
+    System.out.println(mirror);
   }
 
 }

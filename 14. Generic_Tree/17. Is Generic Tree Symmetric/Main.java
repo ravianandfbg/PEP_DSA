@@ -78,43 +78,33 @@ public class Main {
 
     return h;
   }
-
-  public static void traversals(Node node){
-    System.out.println("Node Pre " + node.data);
-
-    for(Node child: node.children){
-      System.out.println("Edge Pre " + node.data + "--" + child.data);
-      traversals(child);
-      System.out.println("Edge Post " + node.data + "--" + child.data);
+  
+  // start code from here
+  public static boolean areMirror(Node n1, Node n2) {
+    
+    if(n1.children.size() != n2.children.size()){
+        return false;
     }
-
-    System.out.println("Node Post " + node.data);
+    //for real image tree check left to right
+    for(int i = 0 ; i < n1.children.size() ; i++){
+        Node child1 = n1.children.get(i);
+        
+        //for mirror image tree check right to left
+        int mIdx = n2.children.size()-1-i; // mIdx : mirror index
+        Node child2 = n2.children.get(mIdx);
+        
+        boolean res = areMirror(child1,child2);
+        
+        if(res == false){
+            return false;
+        }
+    }
+    return true;
   }
 
-  public static void levelOrderLinewise(Node root){
+  public static boolean IsSymmetric(Node node) {
     // write your code here
-     Queue<Node> mainq = new ArrayDeque<>();
-        Queue<Node> helperq = new ArrayDeque<>();
-
-        mainq.add(root);
-
-        while(mainq.size() > 0){
-            Node fnode = mainq.remove();//remove
-            System.out.print(fnode.data+" "); // print
-
-            // add children to helperq
-            for(Node child : fnode.children){
-                helperq.add(child);
-            }
-
-            if(mainq.size() == 0){
-                System.out.println();
-
-                Queue<Node> tempq = mainq;
-                mainq = helperq;
-                helperq = tempq;
-            }
-        }
+    return areMirror(node,node);
   }
 
   public static void main(String[] args) throws Exception {
@@ -127,7 +117,9 @@ public class Main {
     }
 
     Node root = construct(arr);
-    levelOrderLinewise(root);
+    boolean sym = IsSymmetric(root);
+    System.out.println(sym);
+    // display(root);
   }
 
 }

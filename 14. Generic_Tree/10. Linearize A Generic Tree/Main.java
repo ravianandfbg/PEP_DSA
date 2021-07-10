@@ -79,10 +79,10 @@ public class Main {
     return h;
   }
 
-  public static void traversals(Node node){
+  public static void traversals(Node node) {
     System.out.println("Node Pre " + node.data);
 
-    for(Node child: node.children){
+    for (Node child : node.children) {
       System.out.println("Edge Pre " + node.data + "--" + child.data);
       traversals(child);
       System.out.println("Edge Post " + node.data + "--" + child.data);
@@ -91,30 +91,81 @@ public class Main {
     System.out.println("Node Post " + node.data);
   }
 
-  public static void levelOrderLinewise(Node root){
-    // write your code here
-     Queue<Node> mainq = new ArrayDeque<>();
-        Queue<Node> helperq = new ArrayDeque<>();
+  public static void levelOrderLinewiseZZ(Node node) {
+    Stack<Node> stack = new Stack<>();
+    stack.add(node);
 
-        mainq.add(root);
+    Stack<Node> cstack = new Stack<>();
+    int level = 0;
 
-        while(mainq.size() > 0){
-            Node fnode = mainq.remove();//remove
-            System.out.print(fnode.data+" "); // print
+    while (stack.size() > 0) {
+      node = stack.pop();
+      System.out.print(node.data + " ");
 
-            // add children to helperq
-            for(Node child : fnode.children){
-                helperq.add(child);
-            }
-
-            if(mainq.size() == 0){
-                System.out.println();
-
-                Queue<Node> tempq = mainq;
-                mainq = helperq;
-                helperq = tempq;
-            }
+      if (level % 2 == 0) {
+        for (int i = 0; i < node.children.size(); i++) {
+          Node child = node.children.get(i);
+          cstack.push(child);
         }
+      } else {
+        for (int i = node.children.size() - 1; i >= 0; i--) {
+          Node child = node.children.get(i);
+          cstack.push(child);
+        }
+      }
+
+      if (stack.size() == 0) {
+        stack = cstack;
+        cstack = new Stack<>();
+        level++;
+        System.out.println();
+      }
+    }
+  }
+
+  public static void mirror(Node node) {
+    for (Node child : node.children) {
+      mirror(child);
+    }
+    Collections.reverse(node.children);
+  }
+
+  public static void removeLeaves(Node node) {
+    for (int i = node.children.size() - 1; i >= 0; i--) {
+      Node child = node.children.get(i);
+      if (child.children.size() == 0) {
+        node.children.remove(i);
+      }
+    }
+
+    for(Node child: node.children){
+      removeLeaves(child);
+    }
+  }
+  
+  //start code from here
+  public static Node getTail(Node node){
+      while(node.children.size() == 1){
+          node = node.children.get(0);
+      }
+      return node;
+  }
+  
+
+  public static void linearize(Node node){
+    // write your code here
+    for(Node child : node.children){
+        linearize(child);
+    }
+    
+    while(node.children.size() > 1){
+        Node lc = node.children.remove(node.children.size()-1); // lc : last child
+        Node slc = node.children.get(node.children.size() - 1); // slc : second last child
+        
+        Node tail = getTail(slc);
+        tail.children.add(lc);
+        
+    }
   }
 
   public static void main(String[] args) throws Exception {
@@ -127,7 +178,8 @@ public class Main {
     }
 
     Node root = construct(arr);
-    levelOrderLinewise(root);
+    linearize(root);
+    display(root);
   }
 
 }

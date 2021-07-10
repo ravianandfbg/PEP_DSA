@@ -91,30 +91,45 @@ public class Main {
     System.out.println("Node Post " + node.data);
   }
 
-  public static void levelOrderLinewise(Node root){
-    // write your code here
-     Queue<Node> mainq = new ArrayDeque<>();
-        Queue<Node> helperq = new ArrayDeque<>();
+  public static void levelOrderLinewiseZZ(Node node){
+    Stack<Node> stack = new Stack<>();
+    stack.add(node);
 
-        mainq.add(root);
+    Stack<Node> cstack = new Stack<>();
+    int level = 0;
 
-        while(mainq.size() > 0){
-            Node fnode = mainq.remove();//remove
-            System.out.print(fnode.data+" "); // print
+    while(stack.size() > 0){
+      node = stack.pop();
+      System.out.print(node.data + " ");
 
-            // add children to helperq
-            for(Node child : fnode.children){
-                helperq.add(child);
-            }
-
-            if(mainq.size() == 0){
-                System.out.println();
-
-                Queue<Node> tempq = mainq;
-                mainq = helperq;
-                helperq = tempq;
-            }
+      if(level % 2 == 0){
+        for(int i = 0; i < node.children.size(); i++){
+          Node child = node.children.get(i);
+          cstack.push(child);
         }
+      } else {
+        for(int i = node.children.size() - 1; i >= 0; i--){
+          Node child = node.children.get(i);
+          cstack.push(child);
+        }
+      }
+
+      if(stack.size() == 0){
+        stack = cstack;
+        cstack = new Stack<>();
+        level++;
+        System.out.println();
+      }
+    }
+  }
+
+  public static void mirror(Node node){
+    // write your code here
+    
+    for(Node child : node.children){
+        mirror(child);
+    }
+    Collections.reverse(node.children); // Collections.reverse is inbuilt function 
   }
 
   public static void main(String[] args) throws Exception {
@@ -127,7 +142,9 @@ public class Main {
     }
 
     Node root = construct(arr);
-    levelOrderLinewise(root);
+    display(root);
+    mirror(root);
+    display(root);
   }
 
 }

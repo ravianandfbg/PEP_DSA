@@ -39,11 +39,11 @@ public static void numOfIslandsHelper(int board[][] , int row , int column){
         return;
     }
     
-    board[row][column] = 2; 
+    board[row][column] = 2; // visited
     
     numOfIslandsHelper(board , row-1 , column); // north
     numOfIslandsHelper(board , row , column-1); //east
     numOfIslandsHelper(board , row , column+1); //west
-    numOfIslandsHelper(board , row+1 , column);
+    numOfIslandsHelper(board , row+1 , column); //south
 } 
 }

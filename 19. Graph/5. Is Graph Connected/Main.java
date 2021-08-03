@@ -29,7 +29,7 @@ public class Main {
            }
        }
        return allComps;
-   }
+   } 
    public static void gccHelper(ArrayList<Edge>[] graph , int vertices , ArrayList<Integer> comp , boolean[] visited){
        visited[vertices] = true;
        comp.add(vertices);

@@ -7,6 +7,7 @@ public class Main {
 
         System.out.println(hm);
 
+        //put() operation
         hm.put("India" , 200);
         hm.put("USA" , 250);
         hm.put("China" , 140);
@@ -19,10 +20,11 @@ public class Main {
         System.out.println("India : "+ hm.get("India"));
         System.out.println("india : "+ hm.get("india"));
 
-        //put() operation
+        //insert
         hm.put("France" , 175);
         System.out.println(hm);
 
+        // update
         hm.put("India" , 199);
         System.out.println(hm);
 

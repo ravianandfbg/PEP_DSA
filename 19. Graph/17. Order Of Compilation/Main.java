@@ -35,22 +35,22 @@ public class Main {
       for(int vertex = 0 ; vertex < vtces ; vertex++){
           if(visited[vertex] == false){
               topological(graph , vertex , visited , st);
-          }
-      }
-      while(st.size() > 0){
-          System.out.println(st.pop());
-      }
-   }
-   
-   public static void topological(ArrayList<Edge>[] graph , int src , boolean[] visited , Stack<Integer> st){
-       visited[src] = true;
-       
-       for(Edge e : graph[src]){
-           if(visited[e.nbr] == false){
-               topological(graph , e.nbr , visited , st);
-           }
-       }
-       st.push(src);
-   }
+            }
+        }
+        while(st.size() > 0){
+            System.out.println(st.pop());
+        }
+    }
+    
+    public static void topological(ArrayList<Edge>[] graph , int src , boolean[] visited , Stack<Integer> st){
+        visited[src] = true;
+        
+        for(Edge e : graph[src]){
+            if(visited[e.nbr] == false){
+                topological(graph , e.nbr , visited , st);
+            }
+        }
+        st.push(src);
+    }
 
 }

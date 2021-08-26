@@ -1,8 +1,6 @@
 import java.io.*;
 import java.util.*;
 
-import jdk.tools.jlink.internal.plugins.SystemModulesPlugin;
-
 public class Main {
   private static class Node {
     int data;
@@ -48,7 +46,7 @@ public class Main {
 
   //code starts from here
   public static class Pair{
-        Node nod;
+        Node node;
         int state;
         Pair(Node node , int state){
               this.node = node;
@@ -65,11 +63,11 @@ public class Main {
     while(st.size() > 0){
           Pair top = st.peek();
           if(top.state == -1){
-                pre += top.node.data+"";
+                pre += top.node.data+" ";
                 top.state++;
           }
-          else if(top.state == top.children.size()){
-                post += top.node.data+"";
+          else if(top.state == top.node.children.size()){
+                post += top.node.data+" ";
                 st.pop();
           }
           else{

@@ -21,7 +21,7 @@ public class Main {
     for(int i = last_occurence + 1 ; i < spots.length ; i++){
         if(spots[i] == null){ // if not occupy
             spots[i] = ch;
-            lastOccurence.put(ch , i);
+            lastOccurence.put(ch , i); // update lastOccurence
             generateWords(cc + 1 , str , spots , lastOccurence);
             lastOccurence.put(ch , last_occurence);
             spots[i] = null;

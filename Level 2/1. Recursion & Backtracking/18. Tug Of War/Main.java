@@ -16,6 +16,8 @@ public class Main {
 	static int mindiff = Integer.MAX_VALUE;
 	static String ans = "";
 
+    // vidx : virtual index
+    // soset1 : sum of set 1
 	public static void solve(int[] arr, int vidx, ArrayList<Integer> set1, ArrayList<Integer> set2, int soset1,
 			int soset2) {
 		//write your code here

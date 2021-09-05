@@ -22,4 +22,4 @@
 
 
 ## LEVEL 2
-* Recursion & Backtracking <a href="https://github.com/ravianandfbg/PEP_DSA/tree/master/Level%202/1.%20Recursion%20%26%20Backtracking" target="_blank">Level 1</a>
+* Recursion & Backtracking <a href="https://github.com/ravianandfbg/PEP_DSA/tree/master/Level%202/1.%20Recursion%20%26%20Backtracking" target="_blank">Level 2</a>

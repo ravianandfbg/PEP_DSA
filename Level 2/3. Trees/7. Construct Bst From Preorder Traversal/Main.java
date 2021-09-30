@@ -13,9 +13,10 @@ public class Main {
             }
       }
 
-      static int idx = 0;
+      static int idx;
 
       public static TreeNode bstFromPreorder(int[] preorder) {
+            idx = 0;
             return helper(preorder, Integer.MIN_VALUE, Integer.MAX_VALUE);
       }
 

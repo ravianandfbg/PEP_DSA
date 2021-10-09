@@ -1,5 +1,4 @@
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Using HASHMAP~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Using only ArrayList(not allowed HASHMAP)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 import java.util.*;
 
@@ -29,33 +28,44 @@ public class Main {
             this.vl = vl;
         }
     }
+    
+    static int max;
+    static int min;
+    public static void width(TreeNode node , int vl){
+        if(node == null){
+            return;
+        }
+        min = Math.min(vl , min);
+        max = Math.max(vl , max);
+        
+        width(node.left , vl - 1);
+        width(node.right , vl + 1);
+    }
+    
 
     public static ArrayList<ArrayList<Integer>> verticalOrderTraversal(TreeNode root) {
+        max = Integer.MIN_VALUE;
+        min = Integer.MAX_VALUE;
+        
+        width(root , 0);
+        
+        int rvl = -min; // rvl : root's vertical line
+        int w = max - min + 1; // w: width
+        
+        ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
         ArrayDeque<Pair> q = new ArrayDeque<>();
-        q.add(new Pair(root , 0));
         
-        int max = Integer.MIN_VALUE;
-        int min = Integer.MAX_VALUE;
+        q.add(new Pair(root , rvl));
         
-        HashMap<Integer,ArrayList<Integer>> map = new HashMap<>(); // vl(vertical line no.) vs nodes on that vl
-        
+        for(int i = 0 ; i < w ; i++){
+            ans.add(new ArrayList<>());
+        }
         while(q.size() > 0){
-            //renove
+            //remove
             Pair rem = q.remove();
-            min = Math.min(min , rem.vl);
-            max = Math.max(max , rem.vl);
             
-            //work
-            if(map.containsKey(rem.vl) == false){
-                ArrayList<Integer> list = new ArrayList<>();
-                list.add(rem.node.val);
-                map.put(rem.vl , list);
-            }
-            else{
-                ArrayList<Integer> list = map.get(rem.vl);
-                list.add(rem.node.val);
-                map.put(rem.vl , list);
-            }
+            // work
+            ans.get(rem.vl).add(rem.node.val);
             
             // add children
             if(rem.node.left != null){
@@ -64,13 +74,6 @@ public class Main {
             if(rem.node.right != null){
                 q.add(new Pair(rem.node.right , rem.vl + 1));
             }
-        }
-        
-        // ans creation
-        ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
-        
-        for(int i = min ; i <= max ; i++){
-            ans.add(map.get(i));
         }
         return ans;
     }

@@ -1,4 +1,4 @@
-class Main {
+class solution {
       public static class Pair implements Comparable<Pair>{
           TreeNode node;
           int x;

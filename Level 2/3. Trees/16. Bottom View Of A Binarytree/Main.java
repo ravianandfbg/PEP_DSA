@@ -51,20 +51,22 @@ public class Main {
     int rvl = -min; // rvl : root's vertical line
     int w = max - min + 1; // w: width
 
-    ArrayList<Integer> tv = new ArrayList<>(); // tv : top view
+    ArrayList<Integer> bv = new ArrayList<>(); // bv : bottom view
     ArrayDeque<Pair> q = new ArrayDeque<>();
 
     q.add(new Pair(root, rvl));
 
     for (int i = 0 ; i < w ; i++) {
-      tv.add(-1);
+      bv.add(-1);
     }
     while (q.size() > 0) {
       //remove
       Pair rem = q.remove();
 
       // work
-      tv.set(rem.vl, rem.node.val);
+      
+        bv.set(rem.vl, rem.node.val);
+    
 
       // add children
       if (rem.node.left != null) {
@@ -74,9 +76,8 @@ public class Main {
         q.add(new Pair(rem.node.right, rem.vl + 1));
       }
     }
-    return tv;
-
-    }
+    return bv;
+  }
 
     // input_section=================================================
 

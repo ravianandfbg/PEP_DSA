@@ -23,3 +23,7 @@
 
 ## LEVEL 2
 * Recursion & Backtracking <a href="https://github.com/ravianandfbg/PEP_DSA/tree/master/Level%202/1.%20Recursion%20%26%20Backtracking" target="_blank">Level 2</a>
+* Linked List <a href=" " target="_blank">Level 2</a>
+* Trees <a href=" " target="_blank">Level 2</a>
+* Graph <a href=" " target="_blank">Level 2</a>
+* HashMap & Heap <a href=" " target="_blank">Level 2</a>

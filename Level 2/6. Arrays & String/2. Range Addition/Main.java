@@ -19,7 +19,6 @@ import java.util.*;
              if(ei + 1 < arr.length){
                  arr[ei + 1] += -inc;
              }
-             
          }
          int[] psa = new int[arr.length]; // psa : prefix sum array
          psa[0] = arr[0];

@@ -9,6 +9,9 @@ public class Main{
         ArrayList<int[]> ans = new ArrayList<>();
         
         Arrays.sort(intervals , (a,b) -> {
+            // 0 -> a = b
+            // negative -> a < b
+            // positive -> a > b
             return a[0] - b[0];
         });
         

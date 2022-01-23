@@ -1,3 +1,5 @@
+// time : O(N)
+
 class Main {
       public int nextGreaterElement(int n) {
           StringBuilder str = new StringBuilder(n + "");

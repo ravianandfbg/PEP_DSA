@@ -1,3 +1,5 @@
+// time : o(NlogN)
+
 import java.util.*;
 
 public class Main {

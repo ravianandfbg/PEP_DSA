@@ -27,3 +27,5 @@
 * Trees <a href="https://github.com/ravianandfbg/PEP_DSA/tree/master/Level%202/3.%20Trees" target="_blank">Level 2</a>
 * Graph <a href="https://github.com/ravianandfbg/PEP_DSA/tree/master/Level%202/4.%20Graph" target="_blank">Level 2</a>
 * HashMap & Heap <a href="https://github.com/ravianandfbg/PEP_DSA/tree/master/Level%202/5.%20Hashmap%20%26%20Heap" target="_blank">Level 2</a>
+* Arrays & Strings <a href="https://github.com/ravianandfbg/PEP_DSA/tree/master/Level%202/6.%20Arrays%20%26%20String" target="_blank">Level 2</a>
+* Searching & Sorting <a href="https://github.com/ravianandfbg/PEP_DSA/tree/master/Level%202/7.%20Searching%20and%20Sorting" target="_blank">Level 2</a>

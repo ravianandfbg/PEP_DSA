@@ -1,6 +1,7 @@
+// Binary Search
+
 // tine : O(NlogN)    space :  O(1)
 
-// Binary Search
 
 import java.util.*;
 import java.io.*;

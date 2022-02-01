@@ -1,5 +1,7 @@
 // Time : O(log N)      space : O(1)
 
+// Binary Search
+
 class Solution {
       public int findMin(int[] nums) {
           int lo = 0;

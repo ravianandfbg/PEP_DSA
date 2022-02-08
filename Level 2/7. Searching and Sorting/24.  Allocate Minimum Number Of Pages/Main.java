@@ -36,7 +36,7 @@ public class Main {
     }
     
     public static boolean isPossible(int[] arr , int mid , int m){
-        int st = 1; // student
+        int st = 1; // st : no. of student
         int sum = 0;
         
         for(int i = 0 ; i < arr.length ; i++){

@@ -29,3 +29,5 @@
 * HashMap & Heap <a href="https://github.com/ravianandfbg/PEP_DSA/tree/master/Level%202/5.%20Hashmap%20%26%20Heap" target="_blank">Level 2</a>
 * Arrays & Strings <a href="https://github.com/ravianandfbg/PEP_DSA/tree/master/Level%202/6.%20Arrays%20%26%20String" target="_blank">Level 2</a>
 * Searching & Sorting <a href="https://github.com/ravianandfbg/PEP_DSA/tree/master/Level%202/7.%20Searching%20and%20Sorting" target="_blank">Level 2</a>
+* Trie <a href="" target="_blank">Level 2</a>
+* Stack & Queue <a href="https://github.com/ravianandfbg/PEP_DSA/tree/master/Level%202/9.%20Stack%20%26%20Queue" target="_blank">Level 2</a>

@@ -1,35 +1,24 @@
-// Time : O(N)          Space : O(N)
+// Time : O(N^2)          Space : O(N)
 
 class Solution {
-      public String reverseParentheses(String s) {
-          Stack<Character> st = new Stack<>();
-          
-          for(int i = 0 ; i < s.length() ; i++){
-              
-               if(s.charAt(i) == ')'){
-                  Queue<Character> q = new LinkedList<>();
-                  
-                  while(st.peek() != '('){
-                      q.add(st.pop());
-                  }
-                  st.pop();
-                  
-                  while(q.size() > 0){
-                      st.push(q.remove());
-                  }
-               }
-                  else{
-                      st.push(s.charAt(i));
-                  }
-              }
-              
-              char[] ans = new char[st.size()];
-              int i = ans.length - 1;
-              
-              while(i >= 0){
-                  ans[i] = st.pop();
-                  i--;
-              }
-          return new String(ans);
-      }
-  }
+    public String reverseParentheses(String s) {
+        Deque<StringBuilder> dq = new ArrayDeque<>();
+        dq.push(new StringBuilder()); // In case the first char is NOT '(', need an empty StringBuilder.
+        for (char c : s.toCharArray()) {
+            if (c == '(') 
+            { // need a new StringBuilder to save substring in brackets pair
+                dq.offer(new StringBuilder());
+            }
+            else if (c == ')') 
+            { // found a matched brackets pair and reverse the substring between them.
+                StringBuilder end = dq.pollLast();
+                dq.peekLast().append(end.reverse());
+            }
+            else { 
+                // append the char to the last StringBuilder.
+                dq.peekLast().append(c);
+            } 
+        }
+        return dq.pollLast().toString();
+    }
+}

@@ -1,27 +1,6 @@
-import java.util.*;
-  
-  public class Main {
-  	  public static void main(String[] args) {
-  	  	  Scanner scn = new Scanner(System.in);
-  	  	  int r = scn.nextInt();
-  	  	  int c = scn.nextInt();
-  	  	  int[][] Input = new int[r][c];
-  	  	  for (int i = 0; i < r; i++) {
-  	  	  	  for (int j = 0; j < c; j++) {
-  	  	  	  	  Input[i][j] = scn.nextInt();
-  	  	  	  }
-  	  	  }
-  	  	  System.out.print(numMagicSquaresInside(Input));
-  	  }
-  
-  	  // -----------------------------------------------------
-  	  // This is a functional problem. Do not make changes to main
-  	  // This function takes as input an array and integer k.
-  	  // It should print required output.
-  	  public static int numMagicSquaresInside(int[][] grid) {
-  	  	  // Write your code here
-  	  	  
-  	  	  int n = grid.length , m = grid[0].length , res = 0;
+class Solution {
+    public int numMagicSquaresInside(int[][] grid) {
+        int n = grid.length , m = grid[0].length , res = 0;
         
         for(int i = 0 ; i < n - 2 ; i++){
             for(int j = 0 ; j < m - 2 ; j++){
@@ -58,5 +37,5 @@ import java.util.*;
             }
         }
         return true;
-  	  }
-  }
+    }
+}

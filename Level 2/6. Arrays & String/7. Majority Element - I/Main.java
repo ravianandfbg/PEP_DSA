@@ -1,11 +1,11 @@
-import java.util.*;
 
-public class Main {
+ // time:O(N)
+// space:O(1)
+// space:O(N) (if we use hashmap)
+// Boyer-Moore Majority Vote algorithm
 
-    // ~~~~~~~~~~~~~~~~~~~~~User Section~~~~~~~~~~~~~~~~~~~~~
-
-    public static void printMajorityElement(int[] nums) {
-        // write your code here
+class Solution {
+    public int majorityElement(int[] nums) {
         int val = nums[0];
         int count = 1;
         
@@ -21,36 +21,20 @@ public class Main {
                 count = 1;
             }
         }
+        return val;
         
-        // val contains potential majority element
-        int freq = 0;
-        
-        for(int i = 0 ; i < nums.length ; i++){
-            if(nums[i] == val){
-                freq++;
-            }
-        }
-        if(freq > nums.length / 2){
-            System.out.println(val);
-        }
-        else{
-            System.out.println("No Majority Element exist");
-            
-        }
-    }
-
-    // ~~~~~~~~~~~~~~~~~~~Input Management~~~~~~~~~~~~~~~~~~~
-
-    public static void main(String[] args) {
-        Scanner scn = new Scanner(System.in);
-        int n = scn.nextInt();
-
-        int[] arr = new int[n];
-
-        for(int i = 0; i < n; i++) {
-            arr[i] = scn.nextInt();
-        }
-
-        printMajorityElement(arr);
+        // // val contains potential majority element
+        // int freq = 0;
+        // for(int i = 0 ; i < nums.length ; i++){
+        //     if(nums[i] == val){
+        //         freq++;
+        //     }
+        // }
+        // if(freq > nums.length / 2){
+        //     return val;
+        // }
+        // else{
+        //     return -1;
+        // }
     }
 }

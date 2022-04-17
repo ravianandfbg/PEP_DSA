@@ -11,7 +11,7 @@ public class Main {
         
         lp[0] = nums[0];
         
-        for(int i = 1 ; i <n ; i++){
+        for(int i = 1 ; i < n ; i++){
             lp[i] = lp[i - 1] * nums[i];
         }
         

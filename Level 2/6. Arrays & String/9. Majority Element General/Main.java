@@ -1,45 +1,57 @@
-import java.util.*;
+// time:O(N)
+// space:O(1)
+// Boyer-Moore Majority Vote algorithm
 
-public class Main {
-    
-    //~~~~~~~~~~~~~~~~User Section~~~~~~~~~~~~~~~~~
-    public static ArrayList<Integer> majorityElement(int[] arr, int k) {
-        // write yout code here
-        ArrayList<Integer> ans = new ArrayList<>();
+
+class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+        int val1 = nums[0];
+        int count1 = 1;
         
-        // freq map
-        HashMap<Integer,Integer> map = new HashMap<>();
+        int val2 = 0;
+        int count2 = 0;
         
-        for(int val : arr){
-            if(map.containsKey(val) == false){
-                map.put(val , 1);
+        for(int i = 1 ; i < nums.length ; i++){
+            if(nums[i] == val1){
+                count1++;
+            }
+            else if(nums[i] == val2){
+                count2++;
             }
             else{
-                int nFreq = map.get(val) + 1; // nFreq : new frequency
-                map.put(val , nFreq);
+                if(count1 == 0){
+                    val1 = nums[i];
+                    count1 = 1;
+                }
+                else if(count2 == 0){
+                    val2 = nums[i];
+                    count2 = 1;
+                }
+                else{
+                    count1--;
+                    count2--;
+                }
             }
         }
-        for(int key : map.keySet()){
-            int freq = map.get(key);
-            
-            if(freq > arr.length / k){
-                ans.add(key);
+        int freq1 = 0;
+        int freq2 = 0;
+        
+        for(int i = 0 ; i < nums.length ; i++){
+            if(nums[i] == val1){
+                freq1++;
+            }
+            else if(nums[i] == val2){
+                freq2++;
             }
         }
-        Collections.sort(ans);
+        ArrayList<Integer> ans = new ArrayList<>();
+        
+        if(freq1 > nums.length / 3){
+            ans.add(val1);
+        }
+        if(freq2 > nums.length / 3){
+            ans.add(val2);
+        }
         return ans;
-    }
-    
-    //~~~~~~~~~~~~~~~Input Management~~~~~~~~~~~~~~~
-    public static void main(String[] args) {
-        Scanner scn = new Scanner(System.in);
-        int n = scn.nextInt();
-        int[] arr = new int[n];
-        for(int i = 0; i < n; i++) {
-            arr[i] = scn.nextInt();
-        }
-        int k = scn.nextInt();
-        ArrayList<Integer> res = majorityElement(arr, k);
-        System.out.println(res);
     }
 }

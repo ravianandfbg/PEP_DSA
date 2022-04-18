@@ -1,8 +1,5 @@
-import java.util.*;
-
-public class Main {
-  // ~~~~~~~~~~~~~~User Section~~~~~~~~~~~~
-  public static boolean IsVowel(char ch){
+class Solution {
+    public static boolean IsVowel(char ch){
         String vowels = "aeiouAEIOU";
         int idx = vowels.indexOf(ch);
         
@@ -13,7 +10,7 @@ public class Main {
             return true;
         }
     }
-    public static String reverseVowels(String s) {
+    public String reverseVowels(String s) {
         int i = 0;
         int j = s.length() - 1;
         
@@ -33,13 +30,5 @@ public class Main {
             j--;
         }
         return new String(arr);
-}
-  // ~~~~~~~~~~~~Input Management~~~~~~~~~~
-  public static void main(String[] args) {
-    Scanner scn = new Scanner(System.in);
-    String str = scn.nextLine();
-
-    String res = reverseVowels(str);
-    System.out.println(res);
-  }
+    }
 }

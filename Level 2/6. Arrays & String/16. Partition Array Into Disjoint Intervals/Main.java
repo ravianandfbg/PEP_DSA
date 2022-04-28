@@ -1,7 +1,9 @@
 
+// time : O(N) , space : O(1)
+
 class Solution {
       public int partitionDisjoint(int[] nums) {
-          // time : O(N) , space : O(1)
+          
           
           int lmax = nums[0]; // lmax : left max
           int pmax = nums[0]; // pmax : previous max (maximum of potential ans's left hand side)

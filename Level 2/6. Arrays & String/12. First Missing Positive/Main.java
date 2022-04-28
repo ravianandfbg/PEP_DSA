@@ -1,12 +1,9 @@
-import java.util.*;
+// time : O(N)
+// space :O(1)
 
-public class Main {
-
-
-  //~~~~~~~~~~~~~~~User's Section~~~~~~~~~~~~~~~~~
-  public static int firstMissingPositive(int[] nums) {
-    // write your code here
-     int pe = segregate(nums);
+class Solution {
+    public int firstMissingPositive(int[] nums) {
+        int pe = segregate(nums);
         
         for(int i = 0 ; i <= pe ; i++){
             int idx = Math.abs(nums[i]) - 1;
@@ -46,19 +43,5 @@ public class Main {
             }
         }
         return i - 1;
-  }
-
-  //~~~~~~~~~~~~~Input Management~~~~~~~~~~~~~~~
-  public static void main(String[] args) {
-    Scanner scn = new Scanner(System.in);
-    int n = scn.nextInt();
-    int[] arr = new int[n];
-
-    for (int i = 0; i < n; i++) {
-      arr[i] = scn.nextInt();
     }
-
-    int res = firstMissingPositive(arr);
-    System.out.println(res);
-  }
 }

@@ -1,3 +1,6 @@
+// time : O(N)
+// space : O(1)
+
 class Solution {
     public boolean isLongPressedName(String name, String typed) {
         if(typed.length() < name.length()){

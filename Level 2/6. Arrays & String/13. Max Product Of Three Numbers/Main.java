@@ -1,11 +1,9 @@
-import java.util.*;
+// time:O(N)
+// space:O(1)
 
-public class Main {
-
-    // ~~~~~~~~~~~~~~~~User Section~~~~~~~~~~~
-    public static int maximumProduct(int[] nums) {
-        // write your code here
-         // intialize 1st maximuum , 2nd maximum , 3rd maximum numbers
+class Solution {
+    public int maximumProduct(int[] nums) {
+        // intialize 1st maximuum , 2nd maximum , 3rd maximum numbers
         int max1 = Integer.MIN_VALUE;
         int max2 = Integer.MIN_VALUE;
         int max3 = Integer.MIN_VALUE;
@@ -27,7 +25,7 @@ public class Main {
                 max3 = max2;
                 max2 = nums[i];
             }
-            //update 3rd maximum number
+            //update 3rd maximum numbera
             else if(nums[i] > max3){
                 max3 = nums[i];
             }
@@ -47,19 +45,5 @@ public class Main {
         
         int maxProduct = Math.max(product1 , product2);
         return maxProduct;
-    }
-
-    // ~~~~~~~~~~~~~~~~Input Management~~~~~~~~~~~
-    public static void main(String[] args) {
-        Scanner scn = new Scanner(System.in);
-        int n = scn.nextInt();
-        int[] arr = new int[n];
-
-        for(int i = 0; i < n; i++) {
-            arr[i] = scn.nextInt();
-        }
-
-        int prod = maximumProduct(arr);
-        System.out.println(prod);
     }
 }

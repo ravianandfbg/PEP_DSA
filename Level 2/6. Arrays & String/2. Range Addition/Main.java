@@ -1,5 +1,7 @@
 // Lintcode
 
+// time : O(K + N)
+
 import java.util.*;
  
  public class Main {

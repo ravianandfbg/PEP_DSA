@@ -1,12 +1,10 @@
+// Sieve of Eratosthenes algorithm
+ 
 // time : O(N*(log(log(N)))  , space : O(N)
 
-import java.util.*;
-
-public class Main {
-    
-    // ~~~~~~~~~~~~~~~~~~User Section~~~~~~~~~~~~~~~~
-    public static void printPrimeUsingSieve(int n) {
-        // write your code here
+class Solution {
+    public int countPrimes(int n) {
+        int count = 0;
         boolean[] arr = new boolean[n+1];
         Arrays.fill(arr,true); // initially mark all numbers true
         
@@ -17,18 +15,11 @@ public class Main {
                 }
             }
         }
-        for(int i = 2 ; i <= n ; i++){
+        for(int i = 2 ; i < n ; i++){
             if(arr[i] == true){
-                System.out.print(i + " ");
+                count++;
             }
         }
-    }
-    
-    // ~~~~~~~~~~~~~~~~Input Management~~~~~~~~~~~~~~
-    public static void main(String[] args) {   
-        Scanner scn = new Scanner(System.in);
-        int n = scn.nextInt();
-        printPrimeUsingSieve(n);
+        return count;
     }
 }
-

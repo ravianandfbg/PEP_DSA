@@ -10,6 +10,7 @@ public class Main {
               st[i] = intervals.get(i).start;
               et[i] = intervals.get(i).end;
           }
+          
           Arrays.sort(st);
           Arrays.sort(et);
   

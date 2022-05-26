@@ -9,7 +9,7 @@ public class Main {
         int ans = 0;
         int count = 0;
         
-        for(int i=0; i < arr.length-1;i++) {
+        for(int i=0; i < arr.length - 1;i++) {
             if(arr[i] < arr[i+1]) {
                 count++;
             }

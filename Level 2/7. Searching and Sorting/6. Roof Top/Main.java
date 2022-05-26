@@ -1,4 +1,5 @@
 // time : O(N)
+// space : O(1)  GFG
 
 import java.util.*;
 

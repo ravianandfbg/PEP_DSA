@@ -1,3 +1,5 @@
+// time : O(N)
+
 import java.util.*;
 
 public class Main {

@@ -38,7 +38,7 @@ public class Main {
                     lo = mid + 1;
                 }
                 else{
-                    hi = mid + 2;
+                    hi = mid - 2;
                 }
             }
             else if(arr[mid] == arr[mid + 1]){

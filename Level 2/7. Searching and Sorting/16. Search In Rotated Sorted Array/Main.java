@@ -28,8 +28,9 @@ class Solution {
                 // mid to hi is sorted
                 if (nums[mid] <= target && target <= nums[hi])
                     lo = mid + 1;
-                 else
+                 else{
                     hi = mid - 1;
+                 }
             }
         }
         return -1;

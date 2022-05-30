@@ -11,7 +11,7 @@ public class Main {
         int n = arr1.length;
         int m = arr2.length;
         
-        ArrayList<Integer> ans = new ArrayList<>();
+        ArrayList<Integer> ans = new ArrayList<>(); // union
         
         int i = 0;
         int j = 0;

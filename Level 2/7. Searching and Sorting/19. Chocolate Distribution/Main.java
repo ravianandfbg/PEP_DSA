@@ -18,6 +18,7 @@ public class Main {
 
       ans = Math.min(ans, gap);
     }
+    
     return ans;
   }
 

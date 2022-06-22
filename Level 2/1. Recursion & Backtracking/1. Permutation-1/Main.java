@@ -5,6 +5,8 @@ public class Main {
 
   public static void permutations(int[] boxes, int ci, int ti){
     // write your code here
+    // ci : current object
+    // ti : total objects
     if(ci > ti){
         for(int vl : boxes){
             System.out.print(vl);

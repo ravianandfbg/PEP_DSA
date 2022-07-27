@@ -1,3 +1,7 @@
+// Two Pointers
+// time : O(N)
+// space : O(1)
+
 class Solution {
     public int[] sortedSquares(int[] nums) {
         int[] ans = new int[nums.length];
